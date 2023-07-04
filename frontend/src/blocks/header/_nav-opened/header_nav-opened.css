@@ -1,0 +1,4 @@
+.header_nav-opened {
+    flex-direction: column-reverse;
+    margin: 0;
+}

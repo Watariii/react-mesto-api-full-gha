@@ -1,0 +1,17 @@
+.sign__container {
+    width: 100%;
+    max-width: 358px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 530px) {
+    .sign__container {
+        margin-top: 40px;
+        width: 81.125%;
+        max-width: 400px;
+
+    }
+    
+}

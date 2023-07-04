@@ -1,0 +1,14 @@
+.footer {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 66px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 620px) {
+    .footer {
+        width: 88.125%;
+        margin-top: 48px;
+        margin-bottom: 36px;
+    }
+}

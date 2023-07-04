@@ -1,0 +1,8 @@
+.profile__avatar_type_hover:hover {  
+    background-image: url(../../../../images/edit.svg);
+    background-size: 26px 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+   
+}

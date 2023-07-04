@@ -1,0 +1,12 @@
+@media (max-width: 620px) {
+    .header__nav_mobile_main {
+        display: none;
+        font-size: 18px;
+        line-height: 22px;
+        align-items: center;
+        flex-direction: column;
+        gap: 19px;
+        border-bottom: 1px solid #545454b3;
+        margin-top: 40px;
+    }
+}

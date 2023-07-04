@@ -1,0 +1,23 @@
+.header__nav-button {
+    display: none;
+    
+}
+
+.header__nav-button:hover {
+    opacity: 0.6;
+}
+@media (max-width: 620px){
+    .header__nav-button {
+    display: block;
+    background-color: black;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-right: 30px;
+}}

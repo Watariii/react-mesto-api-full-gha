@@ -1,0 +1,4 @@
+.header__nav_opened {
+    display: flex;
+    order: 1;
+}

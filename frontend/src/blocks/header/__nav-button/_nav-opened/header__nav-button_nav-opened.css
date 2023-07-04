@@ -1,0 +1,7 @@
+@media (max-width: 620px){
+    .header__nav-button_nav-opened {
+    position: relative;
+    top: 26px;
+    left: calc(100vw*0.843);
+    
+}}

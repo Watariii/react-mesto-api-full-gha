@@ -1,0 +1,16 @@
+.sign__text {
+    margin: 0 auto;
+    margin-top: 15px;
+    color: white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+}
+
+@media (max-width: 530px) {
+    .sign__text {
+        margin-top: 19px;
+    } 
+}

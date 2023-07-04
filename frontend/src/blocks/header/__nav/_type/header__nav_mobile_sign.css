@@ -1,0 +1,10 @@
+@media (max-width: 350px) {
+    .header__nav_mobile_sign {
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 30px;
+        margin: 0;
+        margin-top: 10px;
+    }
+    
+}

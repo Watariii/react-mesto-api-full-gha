@@ -1,0 +1,11 @@
+.photo-elements {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 51px;
+}
+
+@media (max-width: 730px) {
+    .photo-elements {
+        margin-top: 36px;
+    }
+}

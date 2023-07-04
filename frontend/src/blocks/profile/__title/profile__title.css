@@ -1,0 +1,12 @@
+.profile__title {
+    display: flex;
+    gap: 18px;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+@media (max-width: 720px) {
+    .profile__title {
+        gap: 10px;
+    }
+}
