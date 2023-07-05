@@ -30,7 +30,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(routes);
+app.use('/api', routes);
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   next(new NotFoundError('Ошибка запроса, не найден путь'));
