@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: "https://mesto.nomoreparties.co/v1/cohort-62/",
+  url: "http://watari.nomoreparties.sbs/",
   headers: {
     "content-type": "application/json",
     authorization: "4898a7e1-8307-419a-888b-936831ac477e",
