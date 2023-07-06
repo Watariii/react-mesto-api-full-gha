@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const express = require('express');
@@ -30,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use('/api', routes);
+app.use(routes);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
