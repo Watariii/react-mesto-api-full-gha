@@ -1,4 +1,6 @@
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+require('dotenv').config();
+
+const { PORT, DB_URL } = process.env;
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -6,6 +8,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const cors = require('./middlevares/cors');
 const routes = require('./routes/index');
 const errorHandler = require('./middlevares/error');
 const NotFoundError = require('./errors/error-not-found');
@@ -17,7 +20,6 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 const app = express();
-
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
 });
@@ -29,6 +31,8 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(cors);
 
 app.use(routes);
 

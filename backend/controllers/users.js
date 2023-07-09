@@ -1,3 +1,4 @@
+const { NODE_ENV, JWT_SECRET } = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -49,9 +50,9 @@ const login = (req, res, next) => {
       bcrypt.compare(password, user.password)
         .then((matched) => {
           if (matched) {
-            const token = jwt.sign({ _id: user._id }, 'secret-key', { expiresIn: 604800 });
+            const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: 6048000 });
             res.cookie('jwt', token, {
-              maxAge: 604800,
+              maxAge: 6048000,
               httpOnly: true,
               sameSite: true,
               secure: false,
