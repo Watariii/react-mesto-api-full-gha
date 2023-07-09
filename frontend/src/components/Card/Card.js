@@ -4,8 +4,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 function Card({ card, onCardClick, onCardLike,handleSubmitPopupClick }) {
   const currentUser = React.useContext(CurrentUserContext);
 
-  const isOwn = card.owner._id === currentUser._id;
-  const isLiked = card.likes.some(item => item._id === currentUser._id);
+  const isOwn = card.owner === currentUser._id;
+  const isLiked = card.likes.some(id => id === currentUser._id);
   const cardLikeButtonClassName = ( 
     `photo-elements__like-button ${isLiked && 'photo-elements__like-button_active'}` 
   ); 

@@ -107,7 +107,7 @@ function App() {
     setTimeout(() => setSelectedCard({ name: "", link: "#" }), 400);
   }
   function handleCardLike(card) {
-    const isLiked = card.likes.some((item) => item._id === currentUser._id);
+    const isLiked = card.likes.some((id) => id === currentUser._id);
 
     api
       .changeLikeCardStatus(card._id, isLiked)
@@ -177,7 +177,7 @@ function App() {
         handleCloseNavBar();
         setLoggedIn(true);
         setUserEmail(email);
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", true);
         navigate("/");
         setFormValue({
           email: "",
@@ -199,6 +199,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       localStorage.removeItem("token");
+      setLoggedIn(false);
       handleOpenNavBar();
     }
   }
@@ -206,11 +207,11 @@ function App() {
   function checkToken() {
     const token = localStorage.getItem("token");
     if (token) {
-      getUsersMe(token)
-        .then(({ data }) => {
+      getUsersMe()
+        .then(({ email }) => {
           setLoggedIn(true);
           navigate("/");
-          setUserEmail(data.email);
+          setUserEmail(email);
         })
         .catch((err) => {
           console.log(err);
@@ -328,7 +329,7 @@ function App() {
         onClose={closeAllPopups}
         card={selectedCard}
         onCardDelete={handleCardDelete}
-        //без пропса onSubmit и обнуления поведения submit выполняется 
+        //без пропса onSubmit и обнуления поведения submit выполняется
         //перезапуск страницы при нажатии на button Submit, убрали это поведение
         onSubmit={(evt) => {
           evt.preventDefault();

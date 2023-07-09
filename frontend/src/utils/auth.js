@@ -1,4 +1,4 @@
-const base_url = "https://api.watari.nomoreparties.sbs/";
+const base_url = "http://localhost:3001";
 
 function register({ email, password }) {
 
@@ -11,30 +11,31 @@ function register({ email, password }) {
       email: `${email}`,
       password: `${password}`,
     }),
+    credentials: "include",
   }).then(checkStatus());
 }
 function authorize({ email, password }) {
     return fetch(`${base_url}/signin`, {
-        method: "POST",
-        headers: {
+      method: "POST",
+      headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+      body: JSON.stringify({
           email: `${email}`,
           password: `${password}`,
         }),
+      credentials: "include",
       }).then(checkStatus());
 }
 
 //получение токена и email
-function getUsersMe(token) {
+function getUsersMe() {
     return fetch(`${base_url}/users/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Authorization" : `Bearer ${token}`
-        }
-      
+        },
+      credentials: "include",
       }).then(checkStatus());
 }
 
