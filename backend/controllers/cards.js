@@ -21,17 +21,15 @@ const createCard = (req, res, next) => {
     })
     .catch(next);
 };
-
 const deleteCard = (req, res, next) => {
-  Card.findById(req.params.cardId).orFail(() => new NotFoundError('Карточка с указанным id не найдена'))
-    .then((card) => {
-      if (String(card.owner) === req.user._id) {
-        Card.deleteOne({ _id: req.params.cardId }).then((data) => {
-          res.status(200).send(data);
-        }).catch((next));
-      } else { throw new AllowsRightError('Невозможно удалить чужую карточку'); }
-    })
-    .catch((next));
+  Card.deleteOne({ _id: req.params.cardId, owner: req.user._id })
+    .orFail(() => new NotFoundError('Карточка с указанным id не найдена'))
+    .then((data) => {
+      if (data.deletedCount === 0) {
+        throw new AllowsRightError('Невозможно удалить чужую карточку');
+      }
+      res.status(200).send(data);
+    }).catch((next));
 };
 
 const likeCard = (req, res, next) => {

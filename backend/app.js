@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT, DB_URL } = process.env;
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -42,11 +42,13 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.use(routes);
-app.use(errorLogger);
 
 app.use((req, res, next) => {
   next(new NotFoundError('Ошибка запроса, не найден путь'));
 });
+
+app.use(errorLogger);
+
 app.use(errors());
 app.use(errorHandler);
 

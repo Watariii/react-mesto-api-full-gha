@@ -6,6 +6,7 @@ const User = require('../models/user');
 
 const NotFoundError = require('../errors/error-not-found');
 const AuthError = require('../errors/error-auth');
+const UniqueEmailError = require('../errors/error-unique-email');
 
 const getUsers = (req, res, next) => {
   User.find({})
@@ -34,7 +35,9 @@ const createUser = (req, res, next) => {
         .then((user) => {
           res.status(201).send(user.hidePass());
         })
-        .catch((next));
+        .catch(() => {
+          next(new UniqueEmailError('Ошибка базы данных'));
+        });
     })
     .catch((next));
 };

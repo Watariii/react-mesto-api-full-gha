@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const auth = require('../middlevares/auth');
-const regex = require('../utils/constants');
+const regexImageUrl = require('../utils/constants');
 
 const {
   getUsers, getUserById, createUser, updateUser, updateUserAvatar, login, userInfo,
@@ -15,7 +15,7 @@ router.post('/signup', celebrate({
       .default('Жак-Ив Кусто'),
     about: Joi.string().min(2).max(30)
       .default('Исследователь'),
-    avatar: Joi.string().default('https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png').regex(regex),
+    avatar: Joi.string().default('https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png').regex(regexImageUrl),
   }),
 }), createUser);
 
@@ -40,14 +40,14 @@ router.get('/users/:id', celebrate({
 
 router.patch('/users/me', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30).required(),
+    about: Joi.string().min(2).max(30).required(),
   }),
 }), updateUser);
 
 router.patch('/users/me/avatar', celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().required().regex(regex),
+    avatar: Joi.string().regex(regexImageUrl).required(),
   }),
 }), updateUserAvatar);
 

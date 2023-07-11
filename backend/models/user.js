@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 const { Schema, model } = require('mongoose');
+const regexImageUrl = require('../utils/constants');
 
 const userSchema = new Schema({
   email: {
@@ -30,6 +31,7 @@ const userSchema = new Schema({
   avatar: {
     type: String,
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    match: regexImageUrl,
   },
 });
 
