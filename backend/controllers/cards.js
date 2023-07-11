@@ -23,13 +23,12 @@ const createCard = (req, res, next) => {
 };
 const deleteCard = (req, res, next) => {
   Card.deleteOne({ _id: req.params.cardId, owner: req.user._id })
-    .orFail(() => new NotFoundError('Карточка с указанным id не найдена'))
     .then((data) => {
       if (data.deletedCount === 0) {
         throw new AllowsRightError('Невозможно удалить чужую карточку');
       }
       res.status(200).send(data);
-    }).catch((next));
+    }).catch(next);
 };
 
 const likeCard = (req, res, next) => {
