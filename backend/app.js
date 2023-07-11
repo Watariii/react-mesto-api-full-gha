@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { PORT, DB_URL } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 const express = require('express');
 const cookieParser = require('cookie-parser');
