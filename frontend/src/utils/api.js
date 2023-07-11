@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: "http://localhost:3001",
+  url: "https://api.watari.nomoreparties.sbs",
   headers: {
     "content-type": "application/json",
   },

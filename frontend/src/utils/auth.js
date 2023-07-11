@@ -1,4 +1,4 @@
-const base_url = "http://localhost:3001";
+const base_url = "https://api.watari.nomoreparties.sbs";
 
 function register({ email, password }) {
 

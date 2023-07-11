@@ -23,7 +23,7 @@ function Register({ onRegister, handleFormValueSign, formValue}) {
             <input
               className="sign__input"
               name="email"
-              type="'email"
+              type="email"
               placeholder="Email"
               required
               onChange={handleChangeForm}
