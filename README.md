@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес <ipv4> 84.252.130.217
+IP <84.252.130.217>
 
 Frontend https://watari.nomoreparties.sbs
 
