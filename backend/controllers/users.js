@@ -15,8 +15,10 @@ const getUsers = (req, res, next) => {
     })
     .catch(next);
 };
-const getUserById = (req, res, next) => {
-  User.findById(req.params.id)
+
+// getUserById and userInfo
+const getUser = (req, res, next) => {
+  User.findById(req.params.id || req.user._id)
     .orFail(() => new NotFoundError('Пользователь с таким id не найден'))
     .then((user) => {
       res.status(200).send(user);
@@ -98,20 +100,11 @@ const updateUserAvatar = (req, res, next) => {
     .catch(next);
 };
 
-const userInfo = (req, res, next) => {
-  User.findById(req.user._id).orFail(() => new NotFoundError('Пользователь с таким id не найден'))
-    .then((user) => {
-      res.status(200).send(user);
-    })
-    .catch(next);
-};
-
 module.exports = {
   getUsers,
-  getUserById,
+  getUser,
   createUser,
   updateUser,
   updateUserAvatar,
   login,
-  userInfo,
 };

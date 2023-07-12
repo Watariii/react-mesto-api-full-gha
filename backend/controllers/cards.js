@@ -22,12 +22,13 @@ const createCard = (req, res, next) => {
     .catch(next);
 };
 const deleteCard = (req, res, next) => {
-  Card.deleteOne({ _id: req.params.cardId, owner: req.user._id })
+  Card.findById({ _id: req.params.cardId }).orFail(() => new NotFoundError('Карточка с таким id не найдена'))
     .then((data) => {
-      if (data.deletedCount === 0) {
-        throw new AllowsRightError('Невозможно удалить чужую карточку');
+      if (String(data.owner) === String(req.user._id)) {
+        data.deleteOne();
+        return res.status(200).send(data);
       }
-      res.status(200).send(data);
+      throw new AllowsRightError('Невозможно удалить чужую карточку');
     }).catch(next);
 };
 
