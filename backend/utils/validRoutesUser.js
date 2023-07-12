@@ -20,11 +20,9 @@ const validPostLogin = {
   }),
 };
 
-const validGetGetUserById = {
-  body: Joi.object().keys({
-    params: Joi.object().keys({
-      id: Joi.string().length(24).hex().required(),
-    }),
+const validGetGetUser = {
+  params: Joi.object().keys({
+    id: Joi.string().length(24).hex().required(),
   }),
 };
 
@@ -43,7 +41,7 @@ const validPatchUpdateUserAvatar = {
 module.exports = {
   validPostCreateUser,
   validPostLogin,
-  validGetGetUserById,
+  validGetGetUser,
   validPatchUpdateUser,
   validPatchUpdateUserAvatar,
 };
