@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-new */
 const { NODE_ENV, JWT_SECRET } = process.env;
 const jwt = require('jsonwebtoken');
@@ -10,7 +11,7 @@ const auth = (req, res, next) => {
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key');
   } catch (err) {
-    next(new AuthError('Ошибка авторизация'));
+    return next(new AuthError('Ошибка авторизация'));
   }
 
   req.user = payload;
