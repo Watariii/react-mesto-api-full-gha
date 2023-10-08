@@ -1,4 +1,4 @@
-const base_url = "https://api.watari.nomoreparties.sbs";
+const base_url = "http://31.129.110.86/api";
 
 function register({ email, password }) {
 
