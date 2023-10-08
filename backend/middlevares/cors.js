@@ -5,6 +5,8 @@ const allowedCorsOrigin = [
   'http://watari.nomoreparties.sbs',
   'http://localhost:3001',
   'http://localhost:3000',
+  'http://31.129.110.86/mesto-react/',
+  'http://31.129.110.86/',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
