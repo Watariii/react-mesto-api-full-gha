@@ -1,6 +1,5 @@
 const allowedCorsOrigin = [
   'http://31.129.110.86',
-  'http://31.129.110.86/api',
   'http://localhost:3001',
   'http://localhost:3000',
 
