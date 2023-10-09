@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: "http://31.129.110.86/api",
+  url: "http://31.129.110.86",
   headers: {
     "content-type": "application/json",
   },

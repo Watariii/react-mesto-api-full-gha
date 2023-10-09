@@ -1,4 +1,4 @@
-const base_url = "http://31.129.110.86/api";
+const base_url = "http://31.129.110.86";
 
 function register({ email, password }) {
 

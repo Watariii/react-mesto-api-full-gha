@@ -1,12 +1,8 @@
 const allowedCorsOrigin = [
-  'https://api.watari.nomoreparties.sbs',
-  'http://api.watari.nomoreparties.sbs',
-  'https://watari.nomoreparties.sbs',
-  'http://watari.nomoreparties.sbs',
-  'http://localhost:3001',
-  'http://localhost:3000',
   'http://31.129.110.86',
   'http://31.129.110.86/api',
+  'http://localhost:3001',
+  'http://localhost:3000',
 
 ];
 
