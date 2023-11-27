@@ -1,5 +1,8 @@
 const allowedCorsOrigin = [
-  'http://31.129.110.86',
+  'https://api.mesto-react.sukhov-nikita.ru',
+  'http://api.mesto-react.sukhov-nikita.ru',
+  'https://mesto-react.sukhov-nikita.ru',
+  'http://mesto-react.sukhov-nikita.ru',
   'http://localhost:3001',
   'http://localhost:3000',
 

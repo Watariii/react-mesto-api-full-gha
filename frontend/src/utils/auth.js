@@ -1,4 +1,4 @@
-const base_url = "http://31.129.110.86";
+const base_url = "http://api.mesto-react.sukhov-nikita.ru";
 
 function register({ email, password }) {
 
