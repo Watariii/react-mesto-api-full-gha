@@ -1,5 +1,5 @@
 const apiConfig = {
-  url: "http://api.mesto-react.sukhov-nikita.ru",
+  url: "https://api.mesto-react.sukhov-nikita.ru",
   headers: {
     "content-type": "application/json",
   },
